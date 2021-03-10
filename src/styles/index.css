@@ -1,0 +1,72 @@
+.slidy-root {
+  position: relative;
+}
+
+.slidy-viewport {
+  overflow: hidden;
+}
+
+.slidy-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* clearfix because slides are floated */
+.slidy-track::after {
+  display: table;
+  content: '';
+  clear: both;
+}
+
+.slidy-is-ready .slidy-track > * {
+  display: block;
+  float: left;
+}
+
+.slidy-is-ready > button {
+  display: initial;
+}
+
+.slidy-prev,
+.slidy-next {
+  display: none;
+  position: absolute;
+  top: 50%;
+  padding: 0;
+  height: 24px;
+  width: 24px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.slidy-prev span,
+.slidy-next span {
+  display: none;
+}
+
+.slidy-prev svg,
+.slidy-next svg {
+  width: 100%;
+  height: 100%;
+  fill: white;
+}
+
+.slidy-prev {
+  left: -1%;
+  transform: translate(-100%, -50%);
+}
+
+.slidy-next {
+  right: -1%;
+  transform: translate(100%, -50%);
+}
+
+.slidy-prev svg {
+  transform: rotate(180deg);
+}

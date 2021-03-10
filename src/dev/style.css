@@ -1,0 +1,15 @@
+.actions {
+  padding: 40px;
+  text-align: center;
+}
+
+.demo {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.demo .item {
+  background: pink;
+  padding: 40px;
+  text-align: center;
+}
