@@ -1,14 +1,16 @@
 # Slidy is a minimal carousel POC
 
-> A simple exercise to help me understand what is the developer experience creating a small JS/CSS library in 2021. tl;dr: it's quite nice.
+> A simple exercise to help me evaluate the DX of creating a small JS+CSS library using webpack and friends. **tl;dr:** it's quite nice.
+
+See it in action: [demo/docs](https://andrezero.github.io/slidy/).
 
 ## WARNING(s)
 
-1. This code is not maintained.
 1. This code is not actively maintained.
+1. This is a POC, not a boilerplate.
+1. This is a POC, not an actual library you would want to use.
 1. Need an actual carousel? try [Slick](http://kenwheeler.github.io/slick/).
 1. This code does not play well with frameworks such as React. Try [React Slick](https://react-slick.neostack.com/) isntead.
-1. This code is not maintained.
 
 ## How to use
 
@@ -51,39 +53,68 @@ Slidy.destroy();
 
 ### Via CDN
 
-Alternatively you can load Slidy into a web page directly.
+Alternatively you can load **Slidy** into a web page directly.
 
 ```html
 <!-- goes before </head> -->
-<link rel="stylesheet" type="text/css" href="//cdn.../slidy.css" />
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://statics.andretorgal.com/exp/slidy/slidy.css"
+/>
 
 <!-- goes before </body> -->
-<script type="text/javascript" src="https://cdn.../slidy.js"></script>
+<script
+  type="text/javascript"
+  src="https://statics.andretorgal.com/exp/slidy/slidy.js"
+></script>
+```
+
+And immediately use the global variable. Old school.
+
+```javascript
+Slidy.create();
 ```
 
 ## API
 
-### Slidy.create(container[, options]): Slidy instance
+### Slidy.create(container[, options])
 
-- **container** dom element that contains the slides
-- **options** object with configuration options
+Attach Slidy to a container element.
+
+**Return value:** Carousel instance.
+
+**Params:**
+
+- **container**: dom element that contains the slides
+- **options**: object with configuration options
 
 | option  | type    | default | description                |
 | ------- | ------- | ------- | -------------------------- |
 | buttons | boolean | true    | show previous/next buttons |
 | dots    | boolean | false   | show navigation dots       |
 
-### Slidy.destroy(container[, options]): Slidy instance
+### Slidy.destroy()
+
+Destroy all instances, restoring original DOM and removing all event listeners.
+
+### slidy.destroy()
+
+Destroy a carousel instance, restoring original DOM and removing all event listeners.
 
 ## TODO
 
-- API auto()
-- API destroy()
-- accessibility
+- testing mocha
+- testing cypress
+- API slidy.onSlide((index: number) => void)
+- API slidy.addSlides(nodes: node[])
+- API slidy.removeSlide(index: number)
+- API Slidy.destroy()
 - disable buttons at the end of the track
-- options: enable swipe
+- accessibility
 - options: enable dots
-- options: disable arraoes
+- options: disable arraows
+- options: enable swipe
 - gaps
 - keyboard navigation
 
@@ -97,6 +128,33 @@ As a rule of thumb:
 
 - slides should not have fixed widths
 - the heighest slide dictates the height of the slider.
+
+## Developing
+
+**Under the hood:**
+
+- dependencies:
+  - none
+- webpack
+  - babel-loader
+  - css-loader + mini-css-extract-plugin
+  - svg-inline-loader
+  - terser-webpack-plugin
+  - html-webpack-plugin (for the docs page)
+- babel
+  - browserslist
+  - preset-env
+  - plugin-proposal-class-properties
+- linting
+  - prettier
+  - eslint + @babel/eslint-parser + eslint-standard + eslint-prettier
+
+### Scripts
+
+- `npm run start` - runs webpack + server (dev config)
+- `npm run dev` - runs webpack + tests in watch mode (dev config)
+- `npm run docs` - runs http-server docs
+- `npm run build` - runs webpack (production config)
 
 ## MIT License
 

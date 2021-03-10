@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slidy Demo</title>
+    <meta name="description" content="Not the Carousel you're looking for!">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#a3211f">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" media="screen" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&amp;family=Open+Sans:ital,wght@0,300;0,600;1,300;1,600&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="https://statics.andretorgal.com/exp/slidy/slidy.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  </head>
+  <body>
+
+    <header>
+      <h1>Slidy</h1>
+      <p>Not the Carousel you're looking for!</p>
+    </header>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#demo">Demo</a>
+      <a href="#usage">Usage</a>
+    </nav>
+
+    <main class="container">
+
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          A simple exercise to help me understand what is the developer
+          experience creating a small JS/CSS library in 2021.
+        </p>
+        <p><strong><em>tl;dr:</em></strong>it's quite nice.</p>
+        <p>Check out the <a href="https://github.com/andrezero/slidy">source code on GitHub</a>.</p>
+        <h3>WARNING(s):</h3>
+        <ol>
+          <li>This code is not maintained.</li>
+          <li>This code is not actively maintained.</li>
+          <li>
+            Need an actual carousel? try
+            <a rel="noopener" href="http://kenwheeler.github.io/slick/">Slick</a>
+          </li>
+          <li>
+            This code does not play well with frameworks such as React. Try
+            <a rel="noopener" href="https://react-slick.neostack.com/">React Slick</a>
+            instead.
+          </li>
+          <li>This code is not maintained.</li>
+        </ol>
+      </section>
+
+      <section id="demo">
+        <h2>Demo</h2>
+        <h3>Single mode of operation.</h3>
+        <p>There's nothing else to it. No options, no dots, no swipes.</p>
+        <p>Fully responsive.</p>
+        <div class="demo" id="demo-1">
+          <div class="item">A</div>
+          <div class="item">B</div>
+          <div class="item">C</div>
+        </div>
+      </section>
+
+      <section id="usage">
+        <h2>Usage</h2>
+
+        <h3>Install with NPM</h3>
+
+        <pre class="language-html"><code class="language-html">
+npm install @andrezero/slidy
+        </code></pre>
+
+        <p>And import it into your project.</p>
+
+        <pre class="language-js"><code class="language-js">
+import Slidy from '@andrezero/slidy';
+        </code></pre>
+
+        <h3>Load via CDN</h3>
+        <p>Alternatively, you can load <strong>Slidy</strong> into a web page directly.</p>
+
+        <pre class="language-html"><code class="language-html">
+&lt;!-- goes before &lt;/head&gt; --&gt;
+&lt;link rel="stylesheet" type="text/css" href="//cdn.../slidy.css" /&gt;
+
+&lt;!-- goes before &lt;/body&gt; --&gt;
+&lt;script type="text/javascript" src="https://cdn.../slidy.js" &gt;&lt;/script&gt;
+        </code></pre>
+
+        <h3>Attach &amp; destroy</h3>
+        <p>Add several elements to one container.</p>
+
+        <pre class="language-html"><code class="language-html">
+&lt;div class="demo" id="usage-1"&gt;
+  &lt;div class="item"&gt;A&lt;/div&gt;
+  &lt;div class="item"&gt;B&lt;/div&gt;
+  &lt;div class="item"&gt;C&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+
+        <p>Attach an instance of <strong>Slidy</strong> to the container element.</p>
+
+        <pre class="language-js"><code class="language-js">
+const slidy = Slidy.create($('#container'));
+        </code></pre>
+
+        <p>Destroy a carousel instance, restoring original DOM and removing all event listeners.</p>
+
+        <pre class="language-js"><code class="language-js">
+slidy.destroy();
+        </code></pre>
+
+        <h3>Try it out below</h3>
+
+        <div class="demo" id="usage-1">
+          <div class="item">A</div>
+          <div class="item">B</div>
+          <div class="item">C</div>
+        </div>
+
+        <div class="controls">
+          <button id="make-1">attach</button>
+          <button id="destroy-1">destroy</button>
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer>
+      <p class="copyright">
+        <span>Copyright © 2021</span>
+        <a href="https://andretorgal.com/">andrezero</a>
+      </p>
+    </footer>
+
+    <script src="https://statics.andretorgal.com/exp/slidy/slidy.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://statics.andretorgal.com/banner/index.js"></script>
+  </body>
+</html>
